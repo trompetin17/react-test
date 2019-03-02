@@ -1,0 +1,28 @@
+@import 'react-md/src/scss/react-md';
+$md-primary-color: $md-teal-500;
+$md-secondary-color: $md-purple-a-400;
+
+
+$app-margin-number: 15px;
+$app-padding-number: 15px;
+
+
+@import 'components/products-list-container';
+@import 'components/layout-categories';
+
+
+.app--margin--top {
+    margin-top: $app-margin-number;
+}
+
+.app--margin--bottom {
+    margin-bottom: $app-margin-number;
+}
+
+.app--padding--top {
+    margin-top: $app-padding-number;
+}
+
+.app--padding--bottom {
+    margin-bottom: $app-padding-number;
+}

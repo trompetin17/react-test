@@ -1,0 +1,27 @@
+$app-layout-categories-enforce-height: false !default;
+$app-layout-categories-use-view-height: true !default;
+$app-layout-categories-margin: 0 0 15px 0 !default;
+
+@mixin app-layout-categories-height($tab-height, $enforce-height: $app-layout-categories-enforce-height, $use-vh: $app-layout-categories-use-view-height) {
+  $height: calc(#{'100' + if($use-vh, 'vh', '%')} - #{$tab-height});
+
+  @if $enforce-height {
+    height: $height;
+  } @else {
+    min-height: $height;
+  }
+}
+
+.app-layout-categories {
+    padding: $app-layout-categories-margin;
+    display: block;
+    @if $md-tab-height != null {
+      @include app-layout-categories-height($md-tab-height);
+    }
+    @if $app-layout-categories-enforce-height {
+      @include md-ios-scroll-momentum;
+
+      overflow-y: auto;
+    }
+}
+

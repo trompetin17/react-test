@@ -1,0 +1,37 @@
+$app-product-list-container-enforce-height: true !default;
+$app-product-list-container-use-view-height: true !default;
+$app-product-list-container-padding: 15px !default;
+
+@mixin app-product-list-container-height($tab-height, $enforce-height: $app-product-list-container-enforce-height, $use-vh: $app-product-list-container-use-view-height) {
+  $height: calc(#{'100' + if($use-vh, 'vh', '%')} - #{$tab-height});
+
+  @if $enforce-height {
+    height: $height;
+  } @else {
+    min-height: $height;
+  }
+}
+
+.app-product-list-container {
+    padding: $app-product-list-container-padding;
+    display: block;
+    @if $md-tab-height != null {
+      @include app-product-list-container-height($md-tab-height);
+    }
+    @if $app-product-list-container-enforce-height {
+      @include md-ios-scroll-momentum;
+
+      overflow-y: auto;
+    }
+
+    .app-product-list-container-card {
+      margin-bottom: 15px;
+    }
+
+    .md-media--3-1 {
+      margin-left: 30%;
+      margin-right: 30%;
+      padding-bottom: 30%; 
+  }
+}
+

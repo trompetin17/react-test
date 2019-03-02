@@ -1,0 +1,15 @@
+@import './styles/globals';
+@include react-md-everything;
+
+html, body, #root, #root>div {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
